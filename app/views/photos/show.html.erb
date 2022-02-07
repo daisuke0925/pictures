@@ -1,0 +1,43 @@
+<h2>投稿詳細画面</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>投稿画像</th>
+    </tr>
+    <tr>
+      <th>タイトル</th>
+    </tr>
+    <tr>
+      <th>説明</th>
+    </tr>
+    <tr>
+      <th>投稿者</th>
+    </tr>
+    <tr>
+      <th>投稿日時</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= attachment_image_tag @photo, :image %></td>
+    </tr>
+    <tr>
+      <td><%= @photo.title %></td>
+    </tr>
+    <tr>
+      <td><%= @photo.body %></td>
+    </tr>
+    <tr>
+      <td><%= @photo.user.last_name + @photo.user.first_name %></td>
+    </tr>
+    <tr>
+      <td><%= @photo.created_at.strftime('%Y/%m/%d') %></td>
+    </tr>
+  </tbody>
+    <% if @photo.user == current_user %>
+    <%= link_to "削除", photo_path(@photo), method: :delete %>
+    <% end %>
+</table>
+
