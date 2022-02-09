@@ -41,3 +41,38 @@
     <% end %>
 </table>
 
+<div>
+  <p>コメント件数：<%= @photo.photo_comments.count %></p>
+    <% @photo.photo_comments.each do |photo_comment| %>
+    <%= photo_comment.user.last_name + photo_comment.user.first_name %>
+    <%= photo_comment.created_at.strftime('%Y/%m/%d') %><%= photo_comment.comment %>
+
+    <% if photo_comment.user == current_user %>
+  <div>
+    <%= link_to "削除", photo_photo_comment_path(photo_comment.photo, photo_comment), method: :delete %>
+  </div>
+    <% end %>
+    <% end %>
+
+    <% if @photo.favorited_by?(current_user) %>
+      <p>
+        <%= link_to photo_favorites_path(@photo), method: :delete do %>
+          ♥<%= @photo.favorites.count %> いいね
+        <% end %>
+      </p>
+    <% else %>
+      <p>
+        <%= link_to photo_favorites_path(@photo), method: :post do %>
+          ♡<%= @photo.favorites.count %> いいね
+        <% end %>
+      </p>
+      <% end %>
+
+</div>
+<div>
+
+<%= form_with(model:[@photo, @photo_comment], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.submit "送信する" %>
+<% end %>
+</div>

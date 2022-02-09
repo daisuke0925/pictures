@@ -19,6 +19,7 @@
       <td><%= photo.title %></td>
       <td><%= photo.body %></td>
       <td><%= photo.user.last_name + photo.user.first_name %></td>
+      <td><%= link_to "#{photo.photo_comments.count} コメント", photo_path(photo.id) %></td>
     </tr>
   </tbody>
 
