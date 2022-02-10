@@ -1,0 +1,7 @@
+<% if @model == 'user' %>
+  <h3>【Usersモデルの検索結果】検索ワード：<%= @content %></h3>
+  <!--< %= render 'users/index', users: @records %>-->
+<% else @model == 'photo' %>
+  <h3>【Photosモデルの検索結果】検索ワード：<%= @content %></h3>
+    <!--< %= render 'photos/index', photos: @records %>-->
+<% end %>
