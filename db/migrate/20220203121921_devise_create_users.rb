@@ -36,6 +36,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string:first_name
       t.string:last_name_kana
       t.string:first_name_kana
+      t.string:full_name
 
       t.timestamps null: false
     end

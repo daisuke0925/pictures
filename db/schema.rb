@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_144034) do
     t.string "first_name"
     t.string "last_name_kana"
     t.string "first_name_kana"
+    t.string "full_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "profile_image_id"
