@@ -1,4 +1,4 @@
-<h1>マイページ</h1>
+<h1>ユーザー詳細</h1>
 <div>
   <h3><%= @user.last_name + @user.first_name %></h3>
   <%= attachment_image_tag @user, :profile_image, size: '60x60' %>
@@ -7,6 +7,9 @@
 <% if @user.id == current_user.id %>
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
 <% end %>
+
+<%= link_to "フォロー", user_followings_path(@user.id) %>
+<%= link_to "フォロワー", user_followings_path(@user.id) %>
 
 <table class='table table-hover table-inverse'>
   <thead>
