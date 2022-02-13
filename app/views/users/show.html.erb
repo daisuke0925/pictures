@@ -1,3 +1,4 @@
+<h1>マイページ</h1>
 <div>
   <h3><%= @user.last_name + @user.first_name %></h3>
   <%= attachment_image_tag @user, :profile_image, size: '60x60' %>
@@ -7,14 +8,26 @@
     <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
 <% end %>
 
-<% @photos.each do |photo| %>
-<div>
-  <%= link_to photo_path(photo.id) do %>
-    <%= attachment_image_tag photo, :image %>
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th>投稿画像</th>
+      <th>タイトル</th>
+      <th>本文</th>
+      <th colspan="３"></th>
+    </tr>
+  </thead>
+  <% @photos.each do |photo| %>
+  <tbody>
+    <tr>
+      <td>
+          <%= link_to photo_path(photo.id) do %>
+          <%= attachment_image_tag photo, :image, size: :'60x60' %>
+          <% end %>
+      </td>
+      <td><%= photo.title %></td>
+      <td><%= photo.body %></td>
+    </tr>
+  </tbody>
   <% end %>
-  <p>投稿ユーザー画像：<%= attachment_image_tag @user, :profile_image, size: '60x60' %></p>
-  <p>タイトル：<%= photo.title %></p>
-  <p>説明：<%= photo.body %></p>
-  <p>ユーザーネーム：<%= photo.user.last_name + photo.user.first_name %></p>
-</div>
-<% end %>
+</table>

@@ -1,0 +1,28 @@
+<%= form_with(model:[@photo, @photo_comment], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.submit "送信する" %>
+<% end %>
+
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th>コメント者</th>
+      <th>コメント</th>
+      <th colspan="３"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% photo.photo_comments.each do |photo_comment| %>
+    <tr>
+      <td><%= photo_comment.user.last_name + photo_comment.user.first_name %></td>
+      <td><%= photo_comment.comment %></td>
+      <td>
+        <% if photo_comment.user == current_user %>
+        <%= link_to "削除", photo_photo_comment_path(photo_comment.photo, photo_comment), method: :delete %>
+      </td>
+    </tr>
+  </tbody>
+        <% end %>
+    <% end %>
+</table>
