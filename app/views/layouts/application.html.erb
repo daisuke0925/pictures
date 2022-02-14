@@ -19,7 +19,6 @@
         </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-
               <% if user_signed_in? %>
                 <li>
                   <%= link_to '投稿一覧', photos_path %>
@@ -42,14 +41,11 @@
                 </li>
             </ul>
           </div>
-    </div>
+      </div>
       </nav>
               <% end %>
               <%= render 'searches/form' %>
-     </header>
-
-
-
+    </header>
   <main>
     <%= yield %>
   </main>
