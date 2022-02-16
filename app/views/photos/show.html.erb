@@ -27,7 +27,7 @@
       <td><%= @photo.photo_comments.count %></td>
       <td>
         <% if @photo.user == current_user %>
-        <%= link_to "削除", photo_path(@photo), method: :delete %>
+        <%= link_to "削除", photo_path(@photo), class: "btn btn-sm btn-danger",method: :delete %>
         <% end %>
       </td>
     </tr>

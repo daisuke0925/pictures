@@ -19,7 +19,7 @@
       <td><%= photo_comment.comment %></td>
       <td>
         <% if photo_comment.user == current_user %>
-        <%= link_to "削除", photo_photo_comment_path(photo_comment.photo, photo_comment), method: :delete %>
+        <%= link_to "削除", photo_photo_comment_path(photo_comment.photo, photo_comment),class: "btn btn-sm btn-danger", method: :delete %>
       </td>
     </tr>
   </tbody>
