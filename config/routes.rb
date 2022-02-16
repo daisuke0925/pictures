@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get 'relationships/followings'
   get 'relationships/followers'
   root to: 'homes#top'
@@ -8,16 +7,16 @@ Rails.application.routes.draw do
 
   get '/search', to: 'searches#search'
 
-  resources :users,only: [:show,:index,:edit,:update]
+  resources :users, only: %i[show index edit update]
 
   resources :photos do
-    resource :favorites, only: [:create, :destroy]
-    resources :photo_comments, only: [:create, :destroy]
+    resource :favorites, only: %i[create destroy]
+    resources :photo_comments, only: %i[create destroy]
   end
 
   # ネストさせる
   resources :users do
-    resource :relationships, only: [:create, :destroy]
+    resource :relationships, only: %i[create destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end

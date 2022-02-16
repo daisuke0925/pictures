@@ -1,5 +1,4 @@
 class PhotosController < ApplicationController
-
   def new
     @photo = Photo.new
   end
@@ -17,7 +16,7 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     @photo.user_id = current_user.id
     @photo.save
-      redirect_to photos_path, notice: "You have created book successfully."
+    redirect_to photos_path, notice: 'You have created book successfully.'
   end
 
   def destroy
@@ -31,5 +30,4 @@ class PhotosController < ApplicationController
   def photo_params
     params.require(:photo).permit(:title, :body, :user_id, :image)
   end
-
 end

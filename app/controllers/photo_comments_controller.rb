@@ -6,10 +6,10 @@ class PhotoCommentsController < ApplicationController
     if comment.save
       redirect_to @photo
     else
-        @error_comment = comment
-        @user = @photo.user
-        @photo_comment = PhotoComment.new
-        render 'photos/show'
+      @error_comment = comment
+      @user = @photo.user
+      @photo_comment = PhotoComment.new
+      render 'photos/show'
     end
   end
 
