@@ -7,17 +7,17 @@
     </tr>
   </thead>
   <tbody>
-    <% users.each do |user| %>
+    <% users.each do |user| %> <!--each文でオブジェクトを一つずつ取り出す-->
       <tr>
-        <td><%= attachment_image_tag(user, :profile_image, size: :'60x60') %></td>
-        <td><%= user.last_name + user.first_name %></td>
-        <td><%= link_to '詳細', user_path(user.id), class: "user_#{user.id}" %></td>
+        <td><%= attachment_image_tag(user, :profile_image, size: :'60x60') %></td> <!--プロフィール画像を貼る-->
+        <td><%= user.last_name + user.first_name %></td> <!--ユーザーの姓名を合わせて表示-->
+        <td><%= link_to '詳細', user_path(user.id), class: "user_#{user.id}" %></td> <!--『詳細』にユーザーの詳細へのリンクを付与-->
         <td>
-        <% if current_user != user %>
-        <% if current_user.following?(user) %>
-        <td><%= link_to "フォロー外す", user_relationships_path(user.id), class: "btn btn-sm btn-danger", method: :delete %></td>
-        <% else %>
-        <td><%= link_to "フォローする", user_relationships_path(user.id), class: "btn btn-sm btn-success", method: :post %></td>
+        <% if current_user != user %> <!--もしログイン中のユーザーでなければ-->
+        <% if current_user.following?(user) %> <!--もしログイン中のユーザーがフォロー済みであれば-->
+        <td><%= link_to "フォロー外す", user_relationships_path(user.id), class: "btn btn-sm btn-danger", method: :delete %></td> <!--『フォローを外すを表示』-->
+        <% else %> <!--そうでなければ-->
+        <td><%= link_to "フォローする", user_relationships_path(user.id), class: "btn btn-sm btn-success", method: :post %></td> <!--『フォローする』を表示-->
         <% end %>
         <% end %>
         </td>

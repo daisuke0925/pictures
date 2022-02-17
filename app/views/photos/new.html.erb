@@ -5,18 +5,18 @@
         <tbody>
           <tr>
             <th>画像</th>
-              <td><%= f.attachment_field :image %></td>
+              <td><%= f.attachment_field :image %></td> <!--画像選択-->
           </tr>
           <tr>
             <th>タイトル</th>
-              <td><%= f.text_field :title %></td>
+              <td><%= f.text_field :title %></td> <!--タイトル入力-->
           </tr>
           <tr>
-            <th>説明</th>
-              <td><%= f.text_area :body %></td>
+            <th>本文</th>
+              <td><%= f.text_area :body %></td> <!--本文入力-->
           </tr>
           <tr>
-              <td><%= f.submit '投稿', class:'btn btn btn-success' %></td>
+              <td><%= f.submit '投稿', class:'btn btn btn-success' %></td> <!--値の保存と送信-->
           </tr>
               <% end %>
         </tbody>

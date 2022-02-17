@@ -1,5 +1,5 @@
 <table class='table'>
-  <% if users.exists? %>
+  <% if users.exists? %> <!--データがあれば-->
   <% users.each do |user| %>
 <thead>
   <tr>
@@ -11,15 +11,15 @@
 
 <tbody>
   <tr>
-    <td><%= attachment_image_tag user, :profile_image, size: '60x60' %></td>
-    <td><%= user.last_name + user.first_name %></td>
-    <td>フォロー数: <%= user.followings.count %></td>
-    <td>フォロワー数: <%= user.followers.count %></td>
-    <td><%= link_to '詳細', user_path(user.id), class: "user_#{user.id}" %></td>
+    <td><%= attachment_image_tag user, :profile_image, size: '60x60' %></td> <!--プロフィール画像表示-->
+    <td><%= user.last_name + user.first_name %></td> <!--ユーザーの名前を姓名合わせて表示-->
+    <td>フォロー数: <%= user.followings.count %></td> <!--フォローした数-->
+    <td>フォロワー数: <%= user.followers.count %></td> <!--フォローされた数-->
+    <td><%= link_to '詳細', user_path(user.id), class: "user_#{user.id}" %></td> <!--詳細にユーザーの詳細へのリンクを付与-->
   </tr>
 </tbody>
   <% end %>
   <% else %>
-  <p>ユーザーはいません</p>
+  <p>ユーザーはいません</p> <!--データがなければ表示-->
   <% end %>
 </table>

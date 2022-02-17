@@ -1,12 +1,12 @@
-<% if photo.favorited_by?(current_user) %>
+<% if photo.favorited_by?(current_user) %> <!--いいね済みがログイン中のユーザーだったら-->
   <p>
-    <%= link_to photo_favorites_path(photo), method: :delete, remote: true do %>
-      ♥<%= photo.favorites.count %> いいね
+    <%= link_to photo_favorites_path(photo), method: :delete, remote: true do %> <!--いいねを外す-->
+      ♥<%= photo.favorites.count %> いいね <!--いいねの数-->
     <% end %>
   </p>
-<% else %>
+<% else %> <!--そうでなければ-->
   <p>
-    <%= link_to photo_favorites_path(photo), method: :post, remote: true do %>
+    <%= link_to photo_favorites_path(photo), method: :post, remote: true do %> <!--いいねをする-->
       ♡<%= photo.favorites.count %> いいね
     <% end %>
   </p>

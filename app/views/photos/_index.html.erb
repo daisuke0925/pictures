@@ -11,12 +11,12 @@
   <tbody>
     <% photos.each do |photo| %>
       <tr>
-        <td><%= photo.user.last_name + photo.user.first_name %></td>
-        <td><%= attachment_image_tag photo, :image, size: '60x60' %></td>
-        <td><%= link_to photo.title, photo_path(photo), class: "photo_#{photo.id}" %></td>
-        <td><%= photo.body %></td>
+        <td><%= photo.user.last_name + photo.user.first_name %></td> <!--ユーザーの名前表示-->
+        <td><%= attachment_image_tag photo, :image, size: '60x60' %></td> <!--投稿画像表示-->
+        <td><%= link_to photo.title, photo_path(photo), class: "photo_#{photo.id}" %></td> <!--投稿のタイトルと投稿の詳細へのリンク-->
+        <td><%= photo.body %></td> <!--本文-->
         <td id="favorite_buttons_<%= photo.id %>">
-          <%= render "favorites/favorites", photo: photo %>
+          <%= render "favorites/favorites", photo: photo %> <!--いいねの部分テンプレート-->
         </td>
       </tr>
     <% end %>

@@ -12,15 +12,15 @@
   </thead>
 
   <tbody>
-    <%= form_with model:@user, local:true do |f| %>
+    <%= form_with model:@user, local:true do |f| %> <!--viewページで入力した値を保存し送るヘルパー-->
       <tr>
-        <td><%= f.text_field :last_name %></td>
-        <td><%= f.text_field :first_name %></td>
-        <td><%= f.text_field :last_name_kana %></td>
-        <td><%= f.text_field :first_name_kana %></td>
-        <td><%= f.attachment_field :profile_image, size: '60x60' %></td>
-        <td><%= f.submit "変更を保存" %>
-            <% end %>
+        <td><%= f.text_field :last_name %></td> <!--テキストを打ち込む枠組みに姓を入力-->
+        <td><%= f.text_field :first_name %></td> <!--同様に名を入力-->
+        <td><%= f.text_field :last_name_kana %></td> <!--苗字のカナ入力-->
+        <td><%= f.text_field :first_name_kana %></td> <!--名前のカナ入力-->
+        <td><%= f.attachment_field :profile_image, size: '60x60' %></td> <!--プロフィール画像の入力-->
+        <td><%= f.submit "変更を保存" %> <!--submitボタンで値の保存と送信-->
+    <% end %>
         </td>
       </tr>
   </tbody>

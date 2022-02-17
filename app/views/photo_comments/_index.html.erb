@@ -1,5 +1,5 @@
 <%= form_with(model:[@photo, @photo_comment], local: true) do |f| %>
-  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %> <!--コメント入力-->
   <%= f.submit "送信する" %>
 <% end %>
 
@@ -15,11 +15,11 @@
   <tbody>
     <% photo.photo_comments.each do |photo_comment| %>
     <tr>
-      <td><%= photo_comment.user.last_name + photo_comment.user.first_name %></td>
-      <td><%= photo_comment.comment %></td>
+      <td><%= photo_comment.user.last_name + photo_comment.user.first_name %></td> <!--コメントしたユーザーの名前-->
+      <td><%= photo_comment.comment %></td> <!--コメント-->
       <td>
-        <% if photo_comment.user == current_user %>
-        <%= link_to "削除", photo_photo_comment_path(photo_comment.photo, photo_comment),class: "btn btn-sm btn-danger", method: :delete %>
+        <% if photo_comment.user == current_user %> <!--コメントしたユーザーとログイン中のユーザーが同一であれば-->
+        <%= link_to "削除", photo_photo_comment_path(photo_comment.photo, photo_comment),class: "btn btn-sm btn-danger", method: :delete %> <!--削除リンク-->
       </td>
     </tr>
   </tbody>

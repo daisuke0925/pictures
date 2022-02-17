@@ -1,7 +1,7 @@
-<% if @model == 'user' %>
+<% if @model == 'user' %> <!--選択したモデルがユーザーだったら-->
   <h3>Users search for "<%= @content %>"</h3>
-  <%= render 'users/index', users: @records %>
-<% else @model == 'photos' %>
+  <%= render 'users/index', users: @records %> <!--部分テンプレート呼び出し-->
+<% else @model == 'photos' %> <!--選択したモデルが投稿だったら-->
   <h3>Photos search for "<%= @content %>"</h3>
    <table class='table table-hover table-inverse'>
   <thead>
@@ -13,11 +13,11 @@
     </tr>
   </thead>
   <tbody>
-    <% @photos.each do |photo| %>
+    <% @photos.each do |photo| %> <!--each文でオブジェクトを一つずつ取り出し-->
       <tr>
-        <td><%= attachment_image_tag photo, :image, size: '60x60' %></td>
-        <td><%= link_to photo.title, photo_path(photo), class: "photo_#{photo.id}" %></td>
-        <td><%= photo.body %></td>
+        <td><%= attachment_image_tag photo, :image, size: '60x60' %></td> <!--投稿画像表示-->
+        <td><%= link_to photo.title, photo_path(photo), class: "photo_#{photo.id}" %></td> <!--投稿のタイトルに投稿詳細へのリンクを付与-->
+        <td><%= photo.body %></td> <!--投稿の本文-->
     <% end %>
   </tbody>
 <% end %>
