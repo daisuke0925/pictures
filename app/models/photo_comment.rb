@@ -1,4 +1,4 @@
 class PhotoComment < ApplicationRecord
-  belongs_to :user
-  belongs_to :photo
+  belongs_to :user #ユーザーとのアソシエーション
+  belongs_to :photo #投稿とのアソシエーション
 end

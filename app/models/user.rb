@@ -5,10 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   attachment :profile_image, destroy: false
-  has_many :photos, dependent: :destroy
-  has_many :photo_comments, dependent: :destroy
-  has_many :favorites, dependent: :destroy
-
+  has_many :photos, dependent: :destroy #投稿とのアソシエーションでユーザーがいなくなったら投稿も同時に消える
+  has_many :photo_comments, dependent: :destroy #コメントとのアソシエーション
+  has_many :favorites, dependent: :destroy #いいねとのアソシエーション
+  #フォロー機能のアソシエーション
   has_many :relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
 
