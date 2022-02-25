@@ -9,7 +9,7 @@
 <% end %>
 
 <%= link_to "フォロー", user_followings_path(@user.id) %> <!--フォロー一覧へ-->
-<%= link_to "フォロワー", user_followings_path(@user.id) %> <!--フォロワー一覧へ-->
+<%= link_to "フォロワー", user_followers_path(@user.id) %> <!--フォロワー一覧へ-->
 
 <table class='table table-hover table-inverse'> <!--ホバーテーブル-->
   <thead>
