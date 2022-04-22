@@ -1,0 +1,14 @@
+<% if photo.comments.present? %>
+  <p>コメント件数：<%= photo.comments.count %></p>
+  <% photo.comments.each do |comment| %>
+    <%= comment.user.name %>
+    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+    <% if comment.user == current_user %>
+      <div class="comment-delete">
+        <%= link_to "削除", photo_comment_path(comment.photo, comment), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <p>コメントはまだありません</p>
+<% end %>
